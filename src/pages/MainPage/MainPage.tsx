@@ -1,14 +1,11 @@
 import React from 'react';
 import { places } from './utils/entites';
 import { PlaceCard } from './components/PlaceCard/PlaceCard';
-import { Location } from './components/Locations/Locations';
-import { Header } from '../../components/Header/Header';
 import { SortPlaces } from './components/SortPlaces/SortPlaces';
+import { Location } from '../../components';
 
 export const MainPage = () => (
   <div className="page page--gray page--main">
-    <Header />
-
     <main className="page__main page__main--index">
       <h1 className="visually-hidden">Cities</h1>
       <Location />

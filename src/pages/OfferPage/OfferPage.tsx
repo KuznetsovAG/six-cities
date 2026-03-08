@@ -1,4 +1,4 @@
-const OfferPage = () => (
+export const OfferPage = () => (
   <main className="page__main page__main--offer">
     <section className="offer">
       <div className="offer__gallery-container container">
@@ -405,5 +405,3 @@ const OfferPage = () => (
     </div>
   </main>
 );
-
-export default OfferPage;

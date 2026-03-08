@@ -1,4 +1,4 @@
-import { locations } from '../../../../constants/constants';
+import { locations } from '../../constants/constants';
 import { nanoid } from 'nanoid';
 
 export const Location = () => (

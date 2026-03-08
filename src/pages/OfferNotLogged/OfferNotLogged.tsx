@@ -1,4 +1,4 @@
-const OfferNotLogged = () => (
+export const OfferNotLogged = () => (
   <div className="page__main page__main--offer">
     <section className="offer">
       <div className="offer__gallery-container container">
@@ -321,5 +321,3 @@ const OfferNotLogged = () => (
     </div>
   </div>
 );
-
-export default OfferNotLogged;
