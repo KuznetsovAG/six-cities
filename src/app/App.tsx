@@ -25,7 +25,7 @@ const App = () => (
       />
       <Route path={ROUTES.OFFER_PAGE} element={<OfferPage />} />
     </Route>
-    <Route path={'*'} element={<NotFoundPage />} />
+    <Route path={ROUTES.NOT_FROUND_PAGE} element={<NotFoundPage />} />
   </Routes>
 );
 

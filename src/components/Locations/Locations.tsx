@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
 import { locations } from '../../constants/constants';
 import { nanoid } from 'nanoid';
+import { ROUTES } from '../../constants/routes';
 
 export const Location = () => (
   <div className="tabs">
@@ -7,9 +9,12 @@ export const Location = () => (
       <ul className="locations__list tabs__list">
         {locations.map((location) => (
           <li className="locations__item" key={nanoid()}>
-            <a className="locations__item-link tabs__item" href="#">
+            <Link
+              to={ROUTES.MAIN_PAGE}
+              className="locations__item-link tabs__item"
+            >
               <span>{location}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

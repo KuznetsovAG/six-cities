@@ -1,44 +1,60 @@
 import { useNavigate } from 'react-router-dom';
+import { Offers } from './utils/types';
 
-interface PlaceCardProps {
-  title: string;
-  type: 'Apartment' | 'Room';
-  price: number;
-  imageUrl: string;
-  isPremium: boolean;
-  rating: number;
-  id: string;
+interface PlaceCardProps extends Offers {
+  handleActiveOfferChange?: (offerId: string | null) => void;
 }
 
 export const PlaceCard = ({
-  imageUrl,
   isPremium,
+  previewImage,
   price,
   rating,
   title,
   type,
   id,
+  isFavorite,
+  handleActiveOfferChange,
 }: PlaceCardProps) => {
   const navigate = useNavigate();
-  const openOfferPage = (placeId: string) => {
+
+  const navigateToSelectOffer = (placeId: string) => {
     navigate(`/offer/${placeId}`);
+  };
+
+  const handleMouseEnter = () => {
+    if (handleActiveOfferChange) {
+      handleActiveOfferChange(id);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (handleActiveOfferChange) {
+      handleActiveOfferChange(null);
+    }
   };
   return (
     <article
-      className="cities__card place-card"
-      onClick={() => openOfferPage(id)}
+      className={`${isFavorite ? 'favorites' : 'cities'}__card place-card`}
+      onClick={() => navigateToSelectOffer(id)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       )}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div
+        className={`${
+          isFavorite ? 'favorites' : 'cities'
+        }__image-wrapper place-card__image-wrapper`}
+      >
         <img
           className="place-card__image"
-          src={imageUrl}
-          width="260"
-          height="200"
+          src={previewImage}
+          width={isFavorite ? '150' : '260'}
+          height={isFavorite ? '110' : '200'}
           alt="Place image"
         />
       </div>
@@ -48,7 +64,12 @@ export const PlaceCard = ({
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button button" type="button">
+          <button
+            className={`place-card__bookmark-button ${
+              isFavorite ? 'place-card__bookmark-button--active' : ''
+            } button`}
+            type="button"
+          >
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>

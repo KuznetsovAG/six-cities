@@ -3,4 +3,5 @@ export const ROUTES = {
   FAVORITES_PAGE: '/favorites',
   AUTH_PAGE: '/auth',
   OFFER_PAGE: '/offer/:id',
+  NOT_FROUND_PAGE: '*',
 };
