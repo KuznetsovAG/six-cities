@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Location } from '../../components';
 import { OffersList } from './components/OffersList';
+import { CITY, places } from './utils/entites';
+import { Map } from './components/Map';
 
 export const MainPage = () => {
   const [activeOffer, setActiveOffer] = useState<string | null>(null);
@@ -9,7 +11,6 @@ export const MainPage = () => {
     setActiveOffer(placeId);
   };
 
-  console.log('activeOffer :>> ', activeOffer);
   return (
     <div className="page page--gray page--main">
       <main className="page__main page__main--index">
@@ -19,7 +20,9 @@ export const MainPage = () => {
           <div className="cities__places-container container">
             <OffersList handleActiveOfferChange={handleActiveOfferChange} />
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map city={CITY} points={places} selectId={activeOffer} />
+              </section>
             </div>
           </div>
         </div>

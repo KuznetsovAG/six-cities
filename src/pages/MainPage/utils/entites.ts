@@ -1,4 +1,5 @@
 import { Offers } from '../../../components/PlaceCard/utils/types';
+import { Cities } from './types';
 
 export const places: Offers[] = [
   {
@@ -163,3 +164,38 @@ export const places: Offers[] = [
     rating: 1.8,
   },
 ];
+
+export const POINTS = [
+  {
+    title: 'Саундвью',
+    lat: 40.816881,
+    lng: -73.872768,
+  },
+  {
+    title: 'Ферри Поинт',
+    lat: 40.814909,
+    lng: -73.830682,
+  },
+  {
+    title: 'Бронкс',
+    lat: 40.862413,
+    lng: -73.879357,
+  },
+  {
+    title: 'Инвуд-Хилл',
+    lat: 40.870817,
+    lng: -73.927112,
+  },
+  {
+    title: 'Пелхэм-Бей-Парк',
+    lat: 40.877312,
+    lng: -73.807182,
+  },
+];
+
+export const CITY: Cities = {
+  title: 'Paris',
+  lat: 48.85661,
+  lng: 2.351499,
+  zoom: 13,
+};
