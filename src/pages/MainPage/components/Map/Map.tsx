@@ -35,7 +35,7 @@ export const Map = ({
 
         marker
           .setIcon(
-            selectPoint && selectPoint.title === point.title
+            selectPoint && selectPoint.id === point.id
               ? currentCustomIcon
               : defaultCustomIcon
           )

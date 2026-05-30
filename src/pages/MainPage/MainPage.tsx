@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Location } from '../../components';
 import { OffersList } from './components/OffersList';
-import { CITY, places } from './utils/entites';
+import { CITY } from './utils/entites';
 import { Map } from './components/Map';
+import { selectSortedOffers } from './mainPageSlice/mainPageSlice';
 
 export const MainPage = () => {
   const [activeOffer, setActiveOffer] = useState<string | null>(null);
+  const offers = useSelector(selectSortedOffers);
 
   const handleActiveOfferChange = (placeId: string | null) => {
     setActiveOffer(placeId);
@@ -21,7 +24,7 @@ export const MainPage = () => {
             <OffersList handleActiveOfferChange={handleActiveOfferChange} />
             <div className="cities__right-section">
               <section className="cities__map map">
-                <Map city={CITY} points={places} selectId={activeOffer} />
+                <Map city={CITY} points={offers} selectId={activeOffer} />
               </section>
             </div>
           </div>

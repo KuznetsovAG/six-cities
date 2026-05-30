@@ -1,4 +1,5 @@
 import { Icon } from 'leaflet';
+import { SortType } from './types';
 
 export const URL_MARKER_DEFAULT =
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
@@ -17,3 +18,5 @@ export const currentCustomIcon = new Icon({
   iconSize: [40, 40],
   iconAnchor: [20, 40],
 });
+
+export const SORT_TYPES = Object.values(SortType);
