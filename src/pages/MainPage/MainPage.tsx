@@ -1,18 +1,40 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Location } from '../../components';
 import { OffersList } from './components/OffersList';
-import { CITY } from './utils/entites';
 import { Map } from './components/Map';
-import { selectSortedOffers } from './mainPageSlice/mainPageSlice';
+import {
+  selectCurrentCity,
+  selectSortedOffers,
+} from './mainPageSlice/mainPageSlice';
+import { useRentalOffers } from './hooks/useRentalOffers';
+import { MainEmptyPage } from '../MainEmptyPage/MainEmptyPage';
 
 export const MainPage = () => {
   const [activeOffer, setActiveOffer] = useState<string | null>(null);
   const offers = useSelector(selectSortedOffers);
+  const currentCity = useSelector(selectCurrentCity);
+  const { isLoading } = useRentalOffers();
 
   const handleActiveOfferChange = (placeId: string | null) => {
     setActiveOffer(placeId);
   };
+
+  if (isLoading && offers.length === 0) {
+    return (
+      <div className="page page--gray page--main">
+        <main className="page__main page__main--index">
+          <h1 className="visually-hidden">Cities</h1>
+          <Location />
+          <h1>Loading...</h1>
+        </main>
+      </div>
+    );
+  }
+
+  if (offers.length === 0) {
+    return <MainEmptyPage city={currentCity} />;
+  }
 
   return (
     <div className="page page--gray page--main">
@@ -24,7 +46,7 @@ export const MainPage = () => {
             <OffersList handleActiveOfferChange={handleActiveOfferChange} />
             <div className="cities__right-section">
               <section className="cities__map map">
-                <Map city={CITY} points={offers} selectId={activeOffer} />
+                <Map points={offers} selectId={activeOffer} />
               </section>
             </div>
           </div>

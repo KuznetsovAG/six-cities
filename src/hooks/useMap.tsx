@@ -34,5 +34,6 @@ export const useMap = ({ mapRef, city }: useMapProps) => {
       isRenderedRef.current = true;
     }
   }, [mapRef, city]);
+
   return map;
 };

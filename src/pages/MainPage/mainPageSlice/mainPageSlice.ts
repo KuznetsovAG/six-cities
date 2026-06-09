@@ -3,14 +3,17 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { Offers } from '../../../components/PlaceCard/utils/types';
 import { RootState } from '../../../store/rootStore';
 import { SortType } from '../utils/types';
+import { OfferDTO } from '../api/dto';
 
 export interface InitialState {
+  offer: OfferDTO;
   offersList: Offers[];
   currentCity: string;
   currentSort: SortType;
 }
 
 const initialState: InitialState = {
+  offer: {} as OfferDTO,
   offersList: [],
   currentCity: 'Paris',
   currentSort: SortType.Popular,
@@ -36,7 +39,8 @@ export const { setOffersList, setCurrentCity, setCurrentSort } =
   mainPageSlice.actions;
 
 const selectOffersList = (state: RootState) => state.mainPage.offersList;
-const selectCurrentCity = (state: RootState) => state.mainPage.currentCity;
+export const selectCurrentCity = (state: RootState) =>
+  state.mainPage.currentCity;
 export const selectCurrentSort = (state: RootState) =>
   state.mainPage.currentSort;
 
