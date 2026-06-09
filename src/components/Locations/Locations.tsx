@@ -3,7 +3,7 @@ import { locations } from '../../constants/constants';
 import { nanoid } from 'nanoid';
 import { ROUTES } from '../../constants/routes';
 import { useDispatch } from 'react-redux';
-import { setCurrentCity } from '../../pages/MainPage/mainPageSlice/mainPageSlice';
+import { setCurrentCity } from '../../pages/main-page/main-page-slice/main-page-slice';
 
 export const Location = () => {
   const dispatch = useDispatch();

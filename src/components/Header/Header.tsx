@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
-import { Logo } from '../Logo';
+import { Logo } from '../logo';
 
 export const Header = () => (
   <header className="header">

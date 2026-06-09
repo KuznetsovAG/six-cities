@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
-import { Layout } from '../layouts/Layout';
 import { RequireAuth } from '../hoc/RequireAuth';
 import {
   AuthPage,
@@ -9,6 +8,7 @@ import {
   NotFoundPage,
   OfferPage,
 } from '../pages';
+import { Layout } from '../layouts/Layout';
 
 const App = () => (
   <Routes>

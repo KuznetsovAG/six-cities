@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import leaflet, { Map } from 'leaflet';
-import { Cities } from '../pages/MainPage/utils/types';
+import { Cities } from '../pages/main-page/utils/types';
 
 interface useMapProps {
   city: Cities;
